@@ -1,0 +1,56 @@
+Algorithme Des Nombres // Titre de l'algo
+Variables tableau[]:ENTIER // Déclaration des variables
+		  question:chaine <~ "oui"
+	      noDeTours, compteur, nbMini:ENTIER
+
+Debut
+	 noDeTours <~ 1 //Nombre de tour fixé a 1
+	 Tant que question = "oui"
+		 Faire Afficher ("Donne moi un nombre entier") // Interaction avec user
+			  Saisir (tableau[]) // On entre la donnée dans le tableau
+			  Si noDeTours > 3 // Début de condition
+			  	 Afficher ("On continue? oui / non") // Interaction
+			  	 Saisir (chaine)
+			  Fsi // Fin de condition
+			  noDeTours <~ noDeTours + 1
+		
+		 Ftq
+		 nbMini <~ tableau[0] 
+
+		 Pour compteur Allant de 0 A tailleDuTableau-1  Au pas de 1
+		 	 Faire Si tableau[compteur] < nbMini
+		 	 	     Alors nbMini <~ tableau[compteur]
+
+		 	 	   Fsi
+		 	
+		 	 Fpour
+
+	 Afficher ("Le plus petit nombre est " , nbMini) // Interaction avec user pour lui afficher le nombre le plus petit
+Fin
+
+
+//// JS \\\\
+
+function plusPetit(){
+var tableau = new Array;
+var question = "oui";
+var noDeTours, compteur, nbMini;
+
+noDeTours = 1;
+    while(question = "oui"){
+     tableau.push(parseInt(prompt("donne moi un nombre entier")));
+        if(noDeTours > 2){
+            question=prompt("On continue? oui / non");
+        }
+        noDeTours++;
+    }
+    nbMini= tableau[0];
+
+    for(compteur=0; compteur<=tableau.length-1; compteur++){
+        if (tableau[compteur] < nbMini){
+                nbMini = tableau[compteur];
+             }    
+    }
+    
+    alert("le plus petit nombre est "+nbMini);
+}
